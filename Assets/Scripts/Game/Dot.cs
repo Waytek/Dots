@@ -67,6 +67,8 @@ public class Dot : MonoBehaviour
 
   public void Destroy()
   {
+    PlayerData.Score += GameSettings.ScoreFromDot;
+    EventManager.TriggerEvent(EventManager.Events.DotsDestroyed);
     OnDotDestroyed?.Invoke(this);
     Destroy(gameObject);
   }
